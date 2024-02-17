@@ -9,7 +9,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///final.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
-# @app.route('login',methods=['GET'])
+@app.route('login',methods=['GET'])
 # def login():
 #     data = request.get_json()
 #     email = data.get('email')
