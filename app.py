@@ -10,7 +10,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 Migrate(app,db)
 
-@app.route('login',methods=['GET'])
+@app.route('/login',methods=['GET'])
 def login():
     data = request.get_json()
     email = data.get('email')
@@ -21,7 +21,7 @@ def login():
         return jsonify ({'error':'Invalid details'}),404
 
 
-@app.route('login',methods=['GET'])
+@app.route('/login',methods=['GET'])
 def login():
     data = request.get_json()
     email = data.get('email')
@@ -31,7 +31,7 @@ def login():
     else :
         return jsonify ({'error':'Invalid details'}),404
 
-@app.route('login',methods=['GET'])
+@app.route('/login',methods=['GET'])
 def login():
     data = request.get_json()
     email = data.get('email')
