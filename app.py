@@ -13,8 +13,8 @@ db.init_app(app)
 def login():
     data = request.get_json()
     email = data.get('email')
-    existing_user = Admin.query.filter_by(email=email).first()
-    if existing_user:
+    existing_admin = Admin.query.filter_by(email=email).first()
+    if existing_admin:
         return jsonify({'message':'Login successful'}),200
     else :
         return jsonify ({'error':'Invalid details'}),404
@@ -24,8 +24,8 @@ def login():
 def login():
     data = request.get_json()
     email = data.get('email')
-    existing_user = Teacher.query.filter_by(email=email).first()
-    if existing_user:
+    existing_teacher = Teacher.query.filter_by(email=email).first()
+    if existing_teacher:
         return jsonify({'message':'Login successful'}),200
     else :
         return jsonify ({'error':'Invalid details'}),404
@@ -34,8 +34,8 @@ def login():
 def login():
     data = request.get_json()
     email = data.get('email')
-    existing_user = Student.query.filter_by(email=email).first()
-    if existing_user:
+    existing_student = Student.query.filter_by(email=email).first()
+    if existing_student:
         return jsonify({'message':'Login successful'}),200
     else :
         return jsonify ({'error':'Invalid details'}),404
