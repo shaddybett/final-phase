@@ -11,7 +11,7 @@ db.init_app(app)
 
 @app.route('login',methods=['GET'])
 def login():
-#     data = request.get_json()
+    data = request.get_json()
 #     email = data.get('email')
 #     existing_user = Admin.query.filter_by(email=email).first()
 #     if existing_user:
