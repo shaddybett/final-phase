@@ -6,7 +6,7 @@ from models import db,Admin,Teacher,Student
 app = Flask(__name__)
 api = Api(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///final.db'
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # db.init_app(app)
 
 # @app.route('login',methods=['GET'])
