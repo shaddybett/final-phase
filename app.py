@@ -30,8 +30,8 @@ def login():
     else :
         return jsonify ({'error':'Invalid details'}),404
 
-# @app.route('login',methods=['GET'])
-# def login():
+@app.route('login',methods=['GET'])
+def login():
 #     data = request.get_json()
 #     email = data.get('email')
 #     existing_user = Student.query.filter_by(email=email).first()
