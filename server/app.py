@@ -40,3 +40,6 @@ def student():
         return jsonify({'message':'Login successful'}),200
     else :
         return jsonify ({'error':'Invalid details'}),404
+
+if __name__=='__main__':
+    app.run(debug=True)
