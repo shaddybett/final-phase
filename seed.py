@@ -7,5 +7,5 @@ with app.app_context():
         email='bett@gmail.com',
         password='12345'
     )]
-    db.session.add(admins)
+    db.session.add_all(admins)
     db.session.commit()

@@ -11,7 +11,7 @@ db.init_app(app)
 Migrate(app,db)
 
 @app.route('/admin',methods=['GET'])
-def login():
+def admin():
     data = request.get_json()
     email = data.get('email')
     existing_admin = Admin.query.filter_by(email=email).first()
@@ -22,7 +22,7 @@ def login():
 
 
 @app.route('/teacher',methods=['GET'])
-def login():
+def teacher():
     data = request.get_json()
     email = data.get('email')
     existing_teacher = Teacher.query.filter_by(email=email).first()
@@ -32,7 +32,7 @@ def login():
         return jsonify ({'error':'Invalid details'}),404
 
 @app.route('/student',methods=['GET'])
-def login():
+def student():
     data = request.get_json()
     email = data.get('email')
     existing_student = Student.query.filter_by(email=email).first()
