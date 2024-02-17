@@ -20,7 +20,7 @@ def login():
         return jsonify ({'error':'Invalid details'}),404
 
 
-# @app.route('login',methods=['GET'])
+@app.route('login',methods=['GET'])
 # def login():
 #     data = request.get_json()
 #     email = data.get('email')
