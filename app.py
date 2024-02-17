@@ -10,7 +10,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
 @app.route('login',methods=['GET'])
-# def login():
+def login():
 #     data = request.get_json()
 #     email = data.get('email')
 #     existing_user = Admin.query.filter_by(email=email).first()
