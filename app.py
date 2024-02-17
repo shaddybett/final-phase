@@ -24,7 +24,7 @@ def login():
 def login():
     data = request.get_json()
     email = data.get('email')
-#     existing_user = Teacher.query.filter_by(email=email).first()
+    existing_user = Teacher.query.filter_by(email=email).first()
 #     if existing_user:
 #         return jsonify({'message':'Login successful'}),200
 #     else :
