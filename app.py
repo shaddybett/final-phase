@@ -8,6 +8,7 @@ api = Api(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///final.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
+Migrate(app,db)
 
 @app.route('login',methods=['GET'])
 def login():
