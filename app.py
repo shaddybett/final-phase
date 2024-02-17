@@ -21,7 +21,7 @@ def login():
 
 
 @app.route('login',methods=['GET'])
-# def login():
+def login():
 #     data = request.get_json()
 #     email = data.get('email')
 #     existing_user = Teacher.query.filter_by(email=email).first()
