@@ -15,7 +15,7 @@ def login():
     email = data.get('email')
     existing_user = Admin.query.filter_by(email=email).first()
     if existing_user:
-#         return jsonify({'message':'Login successful'}),200
+        return jsonify({'message':'Login successful'}),200
 #     else :
 #         return jsonify ({'error':'Invalid details'}),404
 
