@@ -1,7 +1,7 @@
 from flask import Flask,jsonify,request
 from flask_restful import Api
 from flask_migrate import Migrate
-from models import db,Admin,Teacher,Student
+from server.models import db,Admin,Teacher,Student
 
 app = Flask(__name__)
 api = Api(app)

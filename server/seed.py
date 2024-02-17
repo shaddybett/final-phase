@@ -1,5 +1,5 @@
-from app import app,db
-from models import Admin
+from server.app import app,db
+from server.models import Admin
 
 with app.app_context():
     admins = [Admin(
