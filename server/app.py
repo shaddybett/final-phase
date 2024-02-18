@@ -14,13 +14,20 @@ CORS(app)
 
 @app.route('/admin',methods=['GET'])
 def admin():
-    data = request.get_json()
-    username = data.get('username')
-    existing_admin = Admin.query.filter_by(username=username).first()
-    if existing_admin:
-        return jsonify({'message':'Login successful'}),200
-    else :
-        return jsonify ({'error':'Invalid details'}),404
+    if request.method == 'OPTIONS':
+        headers = {
+            'Access-Control-Allow-Methods': 'POST',
+            'Access-Control-Allow-Headers': 'Content-Type'
+        }
+        return ('',204,headers)
+    if request.method == 'POST':
+        data = request.get_json()
+        username = data.get('username')
+        existing_admin = Admin.query.filter_by(username=username).first()
+        if existing_admin:
+            return jsonify({'message':'Login successful'}),200
+        else :
+            return jsonify ({'error':'Invalid details'}),404
 
 
 @app.route('/teacher',methods=['POST'])
