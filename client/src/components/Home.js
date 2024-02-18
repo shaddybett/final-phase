@@ -14,7 +14,7 @@ function Home() {
     fetch("http://localhost:4000/admin", {
       method: "POST",
       headers: {
-        "Content-Type": "applicatiopn/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ username, password }),
     })
