@@ -11,7 +11,7 @@ function Home() {
   function handleSubmit(e) {
     e.preventDefault();
     // Send login credentials to the server for validation
-    fetch("http://localhost:5000/admin", {
+    fetch("http://localhost:4000/admin", {
       method: "POST",
       headers: {
         "Content-Type": "applicatiopn/json",

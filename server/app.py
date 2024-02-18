@@ -12,14 +12,8 @@ db.init_app(app)
 Migrate(app,db)
 CORS(app)
 
-@app.route('/admin',methods=['GET'])
+@app.route('/admin',methods=['POST'])
 def admin():
-    if request.method == 'OPTIONS':
-        headers = {
-            'Access-Control-Allow-Methods': 'POST',
-            'Access-Control-Allow-Headers': 'Content-Type'
-        }
-        return ('',204,headers)
     if request.method == 'POST':
         data = request.get_json()
         username = data.get('username')
@@ -28,27 +22,38 @@ def admin():
             return jsonify({'message':'Login successful'}),200
         else :
             return jsonify ({'error':'Invalid details'}),404
+    else:
+        return jsonify({'error':'Method Not allowed'}),405    
 
 
 @app.route('/teacher',methods=['POST'])
 def teacher():
-    data = request.get_json()
-    email = data.get('email')
-    existing_teacher = Teacher.query.filter_by(email=email).first()
-    if existing_teacher:
-        return jsonify({'message':'Login successful'}),200
-    else :
-        return jsonify ({'error':'Invalid details'}),404
+    if request.method == 'POST':
+
+        data = request.get_json()
+        email = data.get('email')
+        existing_teacher = Teacher.query.filter_by(email=email).first()
+        if existing_teacher:
+            return jsonify({'message':'Login successful'}),200
+        else :
+            return jsonify ({'error':'Invalid details'}),404
+    else:
+        return jsonify ({'error':'Method Not Allowed'}),405    
 
 @app.route('/student',methods=['POST'])
 def student():
-    data = request.get_json()
-    email = data.get('email')
-    existing_student = Student.query.filter_by(email=email).first()
-    if existing_student:
-        return jsonify({'message':'Login successful'}),200
-    else :
-        return jsonify ({'error':'Invalid details'}),404
+    if request.method == 'POST':
+
+        data = request.get_json()
+        email = data.get('email')
+        existing_student = Student.query.filter_by(email=email).first()
+        if existing_student:
+            return jsonify({'message':'Login successful'}),200
+        else :
+            return jsonify ({'error':'Invalid details'}),404
+    else:
+        return jsonify ({'error':'Method Not Allowed'}),405    
 
 if __name__=='__main__':
-    app.run(debug=True)
+    app.run(debug=True,port=4000)
+
