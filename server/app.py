@@ -31,8 +31,8 @@ def teacher():
     if request.method == 'POST':
 
         data = request.get_json()
-        email = data.get('email')
-        existing_teacher = Teacher.query.filter_by(email=email).first()
+        username = data.get('username')
+        existing_teacher = Teacher.query.filter_by(username=username).first()
         if existing_teacher:
             return jsonify({'message':'Login successful'}),200
         else :
@@ -45,8 +45,8 @@ def student():
     if request.method == 'POST':
 
         data = request.get_json()
-        email = data.get('email')
-        existing_student = Student.query.filter_by(email=email).first()
+        username = data.get('username')
+        existing_student = Student.query.filter_by(username=username).first()
         if existing_student:
             return jsonify({'message':'Login successful'}),200
         else :
